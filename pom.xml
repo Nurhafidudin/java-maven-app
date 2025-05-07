@@ -20,9 +20,12 @@
                             <goal>repackage</goal>
                         </goals>
                     </execution>
+                  <conviguration> 
+                           <mainClass>com.exam[le.Application</mainClass>
+                  </conviguration> 
                 </executions>
             </plugin>
-
+            
             <!-- to handle any Java version mismatch, add the following configuration for maven-compiler-plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

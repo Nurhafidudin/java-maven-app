@@ -14,14 +14,4 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    @PostConstruct
-    public void init()
-    {
-        Logger log = LoggerFactory.getLogger(Application.class);
-        log.info("Java app started");
-    }
-
-    public String getStatus() {
-        return "OK";
-    }
 }

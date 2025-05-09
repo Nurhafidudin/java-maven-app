@@ -13,7 +13,7 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    @PostConstruct
+    @EventListener
     public void init() {
         Logger log = LoggerFactory.getLogger(Application.class);
         log.info("Java app started");

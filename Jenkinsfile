@@ -8,29 +8,23 @@ pipeline {
     stages {
         stage('Build jar') {
             steps {
-                sh 'mvn package'
+                sh 'mvn clean package'
             }
         }
 
         stage('Build Image') {
             steps {
                 script {
-                    echo "Building the Docker image..."
+                    echo "Building the docker image..."
                     withCredentials([usernamePassword(credentialsId: 'docker-hub-credential', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-                        sh 'docker build -t azeyna/demo-app:jma-2.0 .'
-                        sh "echo \$PASS | docker login -u \$USER --password-stdin"
-                        sh 'docker push azeyna/demo-app:jma-2.0'
+                        sh 'docker build -t azevyn/demo-app:1ma.2.0 .'
+                        sh 'echo $PASS | docker login -u $USER --password-stdin'
+                        sh 'docker push azevyn/demo-app:1ma.2.0'
                     }
                 }
             }
         }
 
-        stage('Deploy') {
-            steps {
-                script {
-                    echo "Deploying the application..."
-                }
-            }
-        }
+        // stage('Deploy') { ... }
     }
 }
